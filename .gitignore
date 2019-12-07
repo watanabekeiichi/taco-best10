@@ -39,4 +39,4 @@ nbproject/*
 .vscode
 # Sass preprocessor
 .sass-cache/
-vender/
+/vendor
