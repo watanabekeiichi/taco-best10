@@ -258,7 +258,7 @@ return [
             'persistent' => false,
             'username' => NULL,
             'password' => NULL,
-            'database' => ':memory:',	// ファイル不使用インメモリーDB
+            'database' => ROOT . DS . 'database' . DS . 'songs.sqlite',
             'encoding' => 'utf8',
             'timezone' => 'Asia/Tokyo',
             'flags' => [],

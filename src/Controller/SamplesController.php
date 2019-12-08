@@ -16,7 +16,7 @@ class SamplesController extends AppController
      */
     public function index()
     {
-        $this->viewBuilder()->setLayout('samples');
+        // $this->viewBuilder()->setLayout('samples');
         $this->set([
             'title' => 'あいうえお',
             'value' => 12345,
