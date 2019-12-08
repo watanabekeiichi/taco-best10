@@ -31,11 +31,5 @@ class BesttenController extends AppController {
             '_serialize' => ['data'],
         ]);
     }
-
-    public function beforeRender($response) {
-        $this->autoRender = false;
-        $this->response->charset('UTF-8');
-        $this->response->type('json');
-        $this->response->body(json_encode($response));
-    }
 }
+
