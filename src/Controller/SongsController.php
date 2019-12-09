@@ -37,7 +37,7 @@ class SongsController extends AppController {
         }
         $this->response->body(json_encode([
             'song' => $song
-        ]));
+        ], JSON_UNESCAPED_UNICODE));
     }
 
     /**
@@ -51,21 +51,24 @@ class SongsController extends AppController {
             $songs = null;
         } else {
             // _%をエスケープ
-            $key = addcslashes($key, '\_%');
+            $key = addcslashes($key, '_%');
             // 全角英数スペースを半角に、半角カナを全角に
             $key = mb_convert_kana($key, 'aKs');
             // 全角カタカナをひらがなに
             $yomi = mb_convert_kana($key, 'c');
-            $songs = $this->Songs->find()->where([
-                'OR' => [
-                    'title LIKE' => '%' . $key . '%',
-                    'yomi LIKE' => '%' . $yomi . '%',
-                    'tag LIKE' => '%' . $key . '%',
-                ]
-            ])->limit(5);
+            $songs = $this->Songs->find()
+                ->select(['id', 'title'])
+                ->where([
+                    'OR' => [
+                        'title LIKE' => '%' . $key . '%',
+                        'yomi LIKE' => '%' . $yomi . '%',
+                        'tag LIKE' => '%' . $key . '%',
+                    ]
+                ])
+                ->limit(5);
         }
         $this->response->body(json_encode([
             'songs' => $songs
-        ]));
+        ], JSON_UNESCAPED_UNICODE));
     }
 }
