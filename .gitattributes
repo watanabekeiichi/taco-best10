@@ -48,3 +48,4 @@
 *.webm binary
 *.mp4 binary
 *.ogv binary
+*.sqlite binary

@@ -258,7 +258,7 @@ return [
             'persistent' => false,
             'username' => NULL,
             'password' => NULL,
-            'database' => ROOT . DS . 'database' . DS . 'songs.sqlite',
+            'database' => ROOT . DS . 'database' . DS . 'bestten.sqlite',
             'encoding' => 'utf8',
             'timezone' => 'Asia/Tokyo',
             'flags' => [],
